@@ -2415,7 +2415,7 @@ footer.site-footer {
     -webkit-box-flex: 0;
         -ms-flex: none;
             flex: none; } }
-@media (max-width: 768px) {
+@media (max-width: 268px) {
   .navbar {
     height: 100vh; }
     .navbar .navbar-nav li.menu-item-has-children > a:before {
@@ -2427,8 +2427,6 @@ footer.site-footer {
   .left-panel {
     display: none; }
 
-  aside.left-panel {
-    overflow: scroll; }
 
   .right-panel header.header {
     height: 62px; }
