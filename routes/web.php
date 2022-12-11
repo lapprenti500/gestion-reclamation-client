@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TasksController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,9 @@ Route::post('editTask', [TasksController::class, 'editTask'])->name('editTask');
 Route::get('/userAdmin', [TasksController::class, 'userAdmin'])->name('userAdmin');
 
 Route::get('/deleteTask', [TasksController::class, 'deleteTask'])->name('deleteTask');
+
+Auth::routes();
+
+Route::get('/home', function () {
+    return view('home');
+});
