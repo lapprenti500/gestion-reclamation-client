@@ -16,17 +16,23 @@ use Illuminate\Support\Facades\Route;
 //1st parameter = name of the controller,
 //2nd parameter = the name of the function that exist in the controller
 
-Route::get('/', [TasksController::class, 'index']);
 
-Route::get('/our_page', function(){
-    return view('ourpage');
+
+Route::get('/', function(){
+    return view('welcome');
 });
+
+Route::get('tasksPage', [TasksController::class, 'tasksPage'])->name('tasksPage');
 
 Route::get('/createTaskForm', [TasksController::class, 'createTaskForm']);
 
 Route::post('/createNewTask', [TasksController::class, 'createNewTask'])->name('createNewTask');
 
-//the id in here has to match with the key id in index.php. the controller will receive the $id
+//the id in here has to match with the key id in taskPage.php. the controller will receive the $id
 Route::get('/editTaskForm/{id}', [TasksController::class, 'editTaskForm'])->name('editTaskForm');
 
 Route::post('editTask', [TasksController::class, 'editTask'])->name('editTask');
+
+Route::get('/userAdmin', [TasksController::class, 'userAdmin'])->name('userAdmin');
+
+Route::get('/deleteTask', [TasksController::class, 'deleteTask'])->name('deleteTask');

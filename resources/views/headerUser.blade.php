@@ -4,16 +4,7 @@
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="#"><i class="menu-icon fa fa-laptop"></i>TABLEAU DE BORDS </a>
-                    </li>
                     
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Gestion</a>
-                        <ul class="sub-menu children dropdown-menu">                            <li><i class="fa fa-puzzle-piece"></i><a href="{{route('tasksPage')}}">Taches</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Administrateurs</a></li>
-                        </ul>
-                    </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-circle-o"></i>Mon Compte</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -34,7 +25,7 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="./"><h3>Assistancia</h3></a>
                     
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                    
                 </div>
             </div>
             

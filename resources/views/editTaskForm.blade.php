@@ -8,7 +8,7 @@
             <div class="row">
 
 
-                <div class="col-lg-10">
+                <div class="col-lg-10 offset-lg-1">
                     <div class="card">
                         <div class="card-header"><small> Formulaire de</small><strong>Réclamation</strong></div>
                         <!-- we have an array so to access the element in he array we need to loop through he array-->
@@ -63,16 +63,15 @@
                                                     <option value="En cours de traitement">En cours de traitement</option>
                                                     <option value="Rejetée">Rejetée</option>
                                             @endswitch
-
-
-
-
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
+                                    
                                     <button class="btn btn-primary" type="submit" value="edit">Modifier</button>
+                                    
+
                                 </div>
                             </form>
                         @endforeach

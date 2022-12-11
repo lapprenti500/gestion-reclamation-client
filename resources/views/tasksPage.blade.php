@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('headerUser')
     <!-- Content -->
     <div class="content">
         <!-- Animated -->
@@ -12,12 +13,12 @@
                         <div class="card-body">
                             <div class="stat-widget-five">
                                 <div class="stat-icon dib flat-color-1">
-                                    <i class="pe-7s-network"></i>
+                                    <i class="pe-7s-hourglass"></i>
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">2327</span></div>
-                                        <div class="stat-heading">Total</div>
+                                        <div class="stat-text"><span class="count">{{$waitingTask}}</span></div>
+                                        <div class="stat-heading">En attente</div>
                                     </div>
                                 </div>
                             </div>
@@ -34,8 +35,8 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">2767</span></div>
-                                        <div class="stat-heading">Complétées</div>
+                                        <div class="stat-text"><span class="count">{{$completedTask}}</span></div>
+                                        <div class="stat-heading">Traitées</div>
                                     </div>
                                 </div>
                             </div>
@@ -48,12 +49,12 @@
                         <div class="card-body">
                             <div class="stat-widget-five">
                                 <div class="stat-icon dib flat-color-3">
-                                    <i class="pe-7s-browser"></i>
+                                    <i class="pe-7s-trash"></i>
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">434</span></div>
-                                        <div class="stat-heading">In progress</div>
+                                        <div class="stat-text"><span class="count">{{$rejectedTask}}</span></div>
+                                        <div class="stat-heading">Rejetées</div>
                                     </div>
                                 </div>
                             </div>

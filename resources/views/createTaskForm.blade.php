@@ -8,7 +8,7 @@
             <div class="row">
 
 
-                <div class="col-lg-10">
+                <div class="col-lg-9 offset-lg-1>
                     <div class="card">
                         <div class="card-header"><strong>Formulaire De Réclamation</strong></div>
                         <form action="{{ route('createNewTask') }}" method="POST">
