@@ -36,3 +36,7 @@ Route::post('editTask', [TasksController::class, 'editTask'])->name('editTask');
 Route::get('/userAdmin', [TasksController::class, 'userAdmin'])->name('userAdmin');
 
 Route::get('/deleteTask', [TasksController::class, 'deleteTask'])->name('deleteTask');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
