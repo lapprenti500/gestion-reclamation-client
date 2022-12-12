@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.header')
     <div class="content">
         <div class="animated fadeIn">
 
@@ -68,9 +69,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    
+
                                     <button class="btn btn-primary" type="submit" value="edit">Modifier</button>
-                                    
+
 
                                 </div>
                             </form>

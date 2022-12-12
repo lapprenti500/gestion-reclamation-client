@@ -8,16 +8,18 @@
             <div class="row">
 
 
-                <div class="col-lg-9 offset-lg-1>
-                    <div class="card">
-                        <div class="card-header"><strong>Formulaire De Réclamation</strong></div>
+                <div class="col-lg-9 offset-lg-1">
+                    <div class="card justify-content-center">
+                        <div class="card-header">
+                            <h4 class="card-title" ><strong>Formulaire De Réclamation</strong></h4>
+                        </div>
                         <form action="{{ route('createNewTask') }}" method="POST">
                             {{ csrf_field() }}
 
                             <div class="form-group"><label for="titre" class=" form-control-label">Objet</label><input
                                     type="text" id="company" name="titre"
                                     placeholder="Entrer l'objet de votre réclamation" class="form-control"></div>
-                            <div class="form-group"><label for="description"
+                            <div class="form-group text-area"><label for="description"
                                     class=" form-control-label">Description</label><input type="text" id="vat"
                                     name="description" placeholder="Entrer les détails de votre réclamation"
                                     class="form-control"></div>

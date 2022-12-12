@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('headerUser')
+    @include('layouts.header')
     <!-- Content -->
     <div class="content">
         <!-- Animated -->
@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">{{$waitingTask}}</span></div>
+                                        <div class="stat-text"><span class="count">{{ $waitingTask }}</span></div>
                                         <div class="stat-heading">En attente</div>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">{{$completedTask}}</span></div>
+                                        <div class="stat-text"><span class="count">{{ $completedTask }}</span></div>
                                         <div class="stat-heading">Traitées</div>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">{{$rejectedTask}}</span></div>
+                                        <div class="stat-text"><span class="count">{{ $rejectedTask }}</span></div>
                                         <div class="stat-heading">Rejetées</div>
                                     </div>
                                 </div>
@@ -63,6 +63,96 @@
                 </div>
             </div>
             <!-- /Widgets -->
+
+
+            <div class="container-fluid justify-content-center">
+                <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l justify-content-end"
+                        href="#">par moi
+                        </a>
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg justify-content-end"
+                        href="#">
+                        trier par moi</a>
+
+                @if (Route::currentRouteName() == 'tasksPage')
+
+                    <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                        href="{{ route('waitingTask') }}">En
+                        attente</a>
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                        href="{{ route('inProgressTask') }}">En
+                        traitement</a>
+                    <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
+                        href="{{ route('rejectedTask') }}"> Rejetées
+                    </a>
+                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                        href="{{ route('completedTask') }}"> Traitées
+                    </a>
+                @elseif (Route::currentRouteName() == 'waitingTask')
+                <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                        href="{{ route('tasksPage') }}">Toute les taches
+                        </a>
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                        href="{{ route('inProgressTask') }}">En
+                        traitement</a>
+                    <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
+                        href="{{ route('rejectedTask') }}"> Rejetées
+                    </a>
+                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                        href="{{ route('completedTask') }}"> Traitées
+                    </a>
+
+                @elseif (Route::currentRouteName() == 'inProgressTask')
+                <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                        href="{{ route('waitingTask') }}">En
+                        attente</a>
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                        href="{{ route('tasksPage') }}">Toute les taches
+                        </a>
+                    <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
+                        href="{{ route('rejectedTask') }}"> Rejetées
+                    </a>
+                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                        href="{{ route('completedTask') }}"> Traitées
+                    </a>
+                    @elseif (Route::currentRouteName() == 'rejectedTask')
+                    <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                        href="{{ route('waitingTask') }}">En
+                        attente</a>
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                        href="{{ route('inProgressTask') }}">En
+                        traitement</a>
+                    <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
+                        href="{{ route('tasksPage') }}"> Toute les taches
+                    </a>
+                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                        href="{{ route('completedTask') }}"> Traitées
+                    </a>
+                    @elseif (Route::currentRouteName() == 'completedTask')
+                    <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                        href="{{ route('waitingTask') }}">En
+                        attente</a>
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                        href="{{ route('inProgressTask') }}">En
+                        traitement</a>
+                    <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
+                        href="{{ route('rejectedTask') }}"> Rejetées
+                    </a>
+                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                        href="{{ route('tasksPage') }}"> Toute les taches
+                    </a>
+
+                @endif
+
+                <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l justify-content-lg-end"
+                        href="#">par moi
+                        </a>
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg justify-content-lg-end"
+                        href="#">
+                        trier par moi</a>
+            </div>
+
+
+
 
             <div class="clearfix"></div>
             <!-- Orders -->
@@ -118,30 +208,34 @@
 
                                                     </td>
                                                     <td>
-                                                        <!--va dans l'url edittaskfrm et lui passe la valeu de l'id du task a modifier key=>value et on va passer la cle id dans l'url de la route-->
+                                                        <!--va dans l'url edittaskfrm et lui passe la valeur de l'id du task a modifier key=>value et on va passer la cle id dans l'url de la route-->
                                                         <span class="badge badge-complete"> <a style="color: white"
                                                                 href="{{ route('editTaskForm', ['id' => $task->id]) }}">
                                                                 Modifier </a> </span>
                                                     </td>
+
+
+
                                                 </tr>
                                             @endforeach
-
                                         </tbody>
+
                                     </table>
                                 </div> <!-- /.table-stats -->
                             </div>
                         </div> <!-- /.card -->
                     </div> <!-- /.col-lg-8 -->
 
+
                 </div>
                 <!-- /.orders -->
-
-
-
-
             </div>
             <!-- .animated -->
+
         </div>
         <!-- /.content -->
+        {{ $tasks->links() }}
+
         <div class="clearfix"></div>
+        @include('layouts.footer')
     @endsection

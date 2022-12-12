@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('header-login-register')
+@include('layouts.header')
     <!-- Content -->
     <div class="content">
         <!-- Animated -->
@@ -20,57 +20,38 @@
                             </div>
                             <div class="card-body--">
                                 <div class="table-stats order-table ov-h">
-                                    <table class="table ">
+                                    <table class="table justify-center table-striped"">
                                         <thead>
                                             <tr>
-                                                <th class="serial">#</th>
 
-                                                <th>#id</th>
-                                                <th>En cours de traitement</th>
-                                                <th>En attente</th>
-                                                <th>Rejetées</th>
-                                                <th>Complétées</th>
+
+                                                <th scope="col">#id</th>
+
+                                                    <th scope="col">traitee</th>
+
+                                                        <th scope="col" >rejetee</th>
+
+                                                            <th scope="col">en attente</th>
+                                                            <th scope="col">en cours de traitement</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!--permet d'afficher les taches de la base de donnes dans chaque ligne-->
-                                            @foreach ($tasks as $task)
+                                            {{-- @foreach ($tasks as $task) --}}
                                                 <tr>
-                                                    <td class="serial">{{ $task->id }}</td>
+                                                    <td class="serial">name</td>
                                                     <!--the task id-->
-                                                    <td> <span class="name"> {{ $task->titre }} </span> </td>
-                                                    <td> <span class="product">{{ $task->description }}</span> </td>
-                                                    <td>
-                                                        {{-- on change la couleur dependant du status --}}
-                                                        @switch($task->status)
-                                                            @case('Traitée')
-                                                                <span class="badge badge-pending" style="background: green;">
-                                                                    {{ $task->status }}</span>
-                                                            @break
+                                                    <td> 54 </td>
 
-                                                            @case('Rejetée')
-                                                                <span class="badge badge-pending" style="background: brown;">
-                                                                    {{ $task->status }}</span>
-                                                            @break
+                                                    <td> 65 </td>
 
-                                                            @case('En attente')
-                                                                <span class="badge badge-pending" style="background: yellow ;">
-                                                                    {{ $task->status }}</span>
-                                                            @break
+                                                    <td> 96 </td>
 
-                                                            @default
-                                                                <span class="badge badge-pending"> {{ $task->status }}</span>
-                                                        @endswitch
+                                                    <td>035</td>
 
-                                                    </td>
-                                                    <td>
-                                                        <!--va dans l'url edittaskfrm et lui passe la valeu de l'id du task a modifier key=>value et on va passer la cle id dans l'url de la route-->
-                                                        <span class="badge badge-complete"> <a style="color: white"
-                                                                href="{{ route('editTaskForm', ['id' => $task->id]) }}">
-                                                                Modifier </a> </span>
-                                                    </td>
+
                                                 </tr>
-                                            @endforeach
+                                            {{-- @endforeach --}}
 
                                         </tbody>
                                     </table>
@@ -90,4 +71,5 @@
         </div>
         <!-- /.content -->
         <div class="clearfix"></div>
+        @include('layouts.footer')
     @endsection

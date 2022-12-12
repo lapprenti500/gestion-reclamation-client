@@ -12,8 +12,8 @@ return new class extends Migration
      * @return void
      */
     //a migration help us create and manage a database table.
-    //php artisan make:migration, et on specifie ce que la table fait comme nom de table, tasks. If you would like to generate a database migration when you generate the model, you may use the --migration or -m option: php artisan make:model Task --migration; php artisan make:model Task -m
-    //run ( ) allow to run the migration. php artisan migrate. laravel will run the code that is in the run() function in all the migration files. and creates the tables in those run() 
+    //php artisan make:migration, et on specifie le nom de la migration. le nom doit etre ce que la migration fait, ici, create_tasks_table.  If you would like to generate a database migration when you generate the model, you may use the --migration or -m option: php artisan make:model Task --migration; php artisan make:model Task -m
+    //run ( ) allow to run the migration. php artisan migrate. laravel will run the code that is in the run() function in all the migration files. and creates the tables in those run()
     /*php artisan migrate:refresh gonna rollback and run the new migration  */
     public function up()
     {

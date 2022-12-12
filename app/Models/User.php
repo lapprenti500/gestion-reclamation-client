@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -40,5 +41,17 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'role'=> \App\Enum\UserRoleEnum::class,
     ];
+
+    /**the static function allow us to get all users in the system */
+    public static function getAllUsers(){
+        return User::all();
+
+    }
+
+
+
+
+
 }
