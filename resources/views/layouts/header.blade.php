@@ -4,32 +4,36 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <!-- Authentication Links -->
-                @guest
-                <li class="active">
-                    <a href="#"><i class="menu-icon fa fa-laptop"></i>TABLEAU DE BORDS </a>
-                </li>
+                @auth
+                    @if (auth()->user()->is_admin)
+                        <li class="active">
+                            <a href="#"><i class="menu-icon fa fa-laptop"></i>TABLEAU DE BORDS </a>
+                        </li>
 
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Gestion</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        @if (Route::has('tasksPage'))
-                        <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('tasksPage') }}">Taches</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="{{ route('userAdmin') }}">Administrateurs</a></li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Gestion</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                @if (Route::has('tasksPage'))
+                                    <li><i class="fa fa-puzzle-piece"></i><a href="{{ route('tasksPage') }}">Taches</a></li>
+                                    <li><i class="fa fa-id-badge"></i><a href="{{ route('userAdmin') }}">Administrateurs</a>
+                                    </li>
+                                @endif
+
+                            </ul>
+                        </li>
                     @endif
+                @endauth
 
-                    </ul>
-                </li>
-
-                
+                @guest
                     @if (Route::has('login'))
-                        <li >
+                        <li>
                             <a href="{{ route('login') }}"><i class="menu-icon fa fa-laptop"></i>{{ __('Login') }} </a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
-                        <li >
+                        <li>
                             <a href="{{ route('register') }}"><i class="menu-icon fa fa-laptop"></i>{{ __('Register') }}</a>
                         </li>
                     @endif
@@ -45,9 +49,10 @@
                                     @csrf
                                 </form>
                             </li>
-                        @endguest
+                        
                     </ul>
                 </li>
+                @endguest
 
             </ul>
         </div><!-- /.navbar-collapse -->

@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\User;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+  	// ...
 
-    /**
+    /** 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.header')
     <div class="content">
         <div class="animated fadeIn">
 
@@ -39,4 +40,5 @@
     </div><!-- .content -->
 
     <div class="clearfix"></div>
+    @include('layouts.footer')
 @endsection

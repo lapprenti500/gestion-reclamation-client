@@ -11,12 +11,16 @@ use Illuminate\Support\Facades\DB;
 
 class TasksController extends Controller
 {
-    //plutot que d'utiliser la fonction getallusers dans plusieurs endroits, on peut creer une propriete qui contient tous les utilisateurs
-    //nous allons nous servir du constructeur de la classe pour definir la propriete
     public function __construct()
     {
+        $this->middleware(['auth', 'verified']);
+        
+        //plutot que d'utiliser la fonction getallusers dans plusieurs endroits, on peut creer une propriete qui contient tous les utilisateurs
+    //nous allons nous servir du constructeur de la classe pour definir la propriete
         //nous allons affecter a la propriete users que nous venons de definr 
         $this->users = User::getAllUsers();
+
+        
     }
     
     public function tasksPage(){
@@ -159,6 +163,10 @@ class TasksController extends Controller
     public function userAdmin(){
         // $users = DB::table('users')->get();
         return view('userAdmin');
+    }
+
+    public function sendTask(Request $request){
+        //process of sending the email to users
     }
 
 

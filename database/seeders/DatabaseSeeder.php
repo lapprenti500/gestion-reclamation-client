@@ -8,6 +8,7 @@ namespace Database\Seeders;
 
 use App\Models\Task;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,13 +21,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //User::factory(10)->create();
-        Task::factory(10)->create();
+        //Task::factory(10)->create();
 
+        //permet de creer les donnees factices pour les utilisateurs normals.
+        //User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        //des donnees factices pour admin
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'email_verified_at' => now(),
+            'is_admin' => 1,
+            'password'=>bcrypt('password'),
+            'remember_token' => Str::random(10),
+            'approved_at'=>now(),
+            
+            
+        ]);
 
     }
 }

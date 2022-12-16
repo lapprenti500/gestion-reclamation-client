@@ -651,7 +651,7 @@ aside.left-panel {
             content: "";
             position: absolute;
             top: 23px;
-            right: 0;
+            right: -8px;
             width: 8px;
             height: 8px;
             border-style: solid;

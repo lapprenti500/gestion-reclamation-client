@@ -66,12 +66,12 @@
 
 
             <div class="container-fluid justify-content-center">
-                <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l justify-content-end"
+                {{-- <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l justify-content-end"
                         href="#">par moi
                         </a>
                     <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg justify-content-end"
                         href="#">
-                        trier par moi</a>
+                        trier par moi</a> --}}
 
                 @if (Route::currentRouteName() == 'tasksPage')
 
@@ -142,18 +142,7 @@
                     </a>
 
                 @endif
-
-                <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l justify-content-lg-end"
-                        href="#">par moi
-                        </a>
-                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg justify-content-lg-end"
-                        href="#">
-                        trier par moi</a>
             </div>
-
-
-
-
             <div class="clearfix"></div>
             <!-- Orders -->
             <div class="orders">
