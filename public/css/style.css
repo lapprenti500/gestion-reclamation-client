@@ -2500,4 +2500,11 @@ footer.site-footer {
     left: inherit !important;
     right: 20px !important; }
 
+    a.disabled {
+      /* Make the disabled links grayish*/
+      color: gray;
+      /* And disable the pointer events */
+      pointer-events: none;
+    }
+
 /*# sourceMappingURL=style.css.map */

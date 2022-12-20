@@ -24,6 +24,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'is_admin',
+
     ];
 
     /**
@@ -46,11 +48,18 @@ class User extends Authenticatable implements MustVerifyEmail
         'role'=> \App\Enum\UserRoleEnum::class,
     ];
 
+    public function task(){
+        return $this->hasOne('App\Task', 'accepted_by');
+    }
+
     /**the static function allow us to get all users in the system */
     public static function getAllUsers(){
         return User::all();
 
     }
+
+    
+
 
 
 

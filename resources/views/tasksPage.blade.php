@@ -66,81 +66,73 @@
 
 
             <div class="container-fluid justify-content-center">
-                {{-- <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l justify-content-end"
-                        href="#">par moi
-                        </a>
-                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg justify-content-end"
-                        href="#">
-                        trier par moi</a> --}}
+
 
                 @if (Route::currentRouteName() == 'tasksPage')
-
-                    <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                    <a name="" id="" role="button" class="btn btn-outline-warning m- shadow-l"
                         href="{{ route('waitingTask') }}">En
                         attente</a>
-                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-secondary m-2 shadow-lg"
                         href="{{ route('inProgressTask') }}">En
                         traitement</a>
                     <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
                         href="{{ route('rejectedTask') }}"> Rejetées
                     </a>
-                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
                         href="{{ route('completedTask') }}"> Traitées
                     </a>
                 @elseif (Route::currentRouteName() == 'waitingTask')
-                <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                    <a name="" id="" role="button" class="btn btn-outline-dark m- shadow-l"
                         href="{{ route('tasksPage') }}">Toute les taches
-                        </a>
-                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                    </a>
+                    <a name="" id="" role="button" class="btn btn-outline-secondary m-2 shadow-lg"
                         href="{{ route('inProgressTask') }}">En
                         traitement</a>
                     <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
                         href="{{ route('rejectedTask') }}"> Rejetées
                     </a>
-                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
                         href="{{ route('completedTask') }}"> Traitées
                     </a>
-
                 @elseif (Route::currentRouteName() == 'inProgressTask')
-                <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                    <a name="" id="" role="button" class="btn btn-outline-warning m- shadow-l"
                         href="{{ route('waitingTask') }}">En
                         attente</a>
-                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-dark m-2 shadow-lg"
                         href="{{ route('tasksPage') }}">Toute les taches
-                        </a>
+                    </a>
                     <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
                         href="{{ route('rejectedTask') }}"> Rejetées
                     </a>
-                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
                         href="{{ route('completedTask') }}"> Traitées
                     </a>
-                    @elseif (Route::currentRouteName() == 'rejectedTask')
-                    <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                @elseif (Route::currentRouteName() == 'rejectedTask')
+                    <a name="" id="" role="button" class="btn btn-outline-warning m- shadow-l"
                         href="{{ route('waitingTask') }}">En
                         attente</a>
-                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-secondary m-2 shadow-lg"
                         href="{{ route('inProgressTask') }}">En
                         traitement</a>
-                    <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-dark m-2 shadow-lg"
                         href="{{ route('tasksPage') }}"> Toute les taches
                     </a>
-                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
                         href="{{ route('completedTask') }}"> Traitées
                     </a>
-                    @elseif (Route::currentRouteName() == 'completedTask')
-                    <a name="" id="" role="button" class="btn btn-outline-secondary m- shadow-l"
+                @elseif (Route::currentRouteName() == 'completedTask')
+                    <a name="" id="" role="button" class="btn btn-outline-warning m- shadow-l"
                         href="{{ route('waitingTask') }}">En
                         attente</a>
-                    <a name="" id="" role="button" class="btn btn-outline-success m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-secondary m-2 shadow-lg"
                         href="{{ route('inProgressTask') }}">En
                         traitement</a>
                     <a name="" id="" role="button" class="btn btn-outline-danger m-2 shadow-lg"
                         href="{{ route('rejectedTask') }}"> Rejetées
                     </a>
-                    <a name="" id="" role="button" class="btn btn-outline-warning m-2 shadow-lg"
+                    <a name="" id="" role="button" class="btn btn-outline-dark m-2 shadow-lg"
                         href="{{ route('tasksPage') }}"> Toute les taches
                     </a>
-
                 @endif
             </div>
             <div class="clearfix"></div>
@@ -159,20 +151,36 @@
                                             <tr>
                                                 <th class="serial">#</th>
 
-                                                <th>Titre</th>
+
                                                 <th>Description</th>
                                                 <th>Status</th>
-                                                <th>Modifier</th>
+                                                <th style="text-align: center;">Modifier</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!--permet d'afficher les taches de la base de donnes dans chaque ligne-->
                                             @foreach ($tasks as $task)
                                                 <tr>
-                                                    <td class="serial">{{ $task->id }}</td>
-                                                    <!--the task id-->
-                                                    <td> <span class="name"> {{ $task->titre }} </span> </td>
-                                                    <td> <span class="product">{{ $task->description }}</span> </td>
+                                                    <td class="serial">
+                                                        <div class="my-0">
+                                                            <strong> <span class="badge badge-dark"> #{{ $task->id }}
+                                                                </span> </strong>
+
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <details>
+                                                            <summary>
+                                                                <!--the task id-->
+                                                                <span class="name"> {{ $task->titre }} </span>
+                                                            </summary>
+                                                            <span class="product">{{ $task->description }}</span>
+                                                        </details>
+                                                    </td>
+
+
+
                                                     <td>
                                                         {{-- on change la couleur dependant du status --}}
                                                         @switch($task->status)
@@ -197,11 +205,35 @@
 
                                                     </td>
                                                     <td>
-                                                        <!--va dans l'url edittaskfrm et lui passe la valeur de l'id du task a modifier key=>value et on va passer la cle id dans l'url de la route-->
-                                                        <span class="badge badge-complete"> <a style="color: white"
-                                                                href="{{ route('editTaskForm', ['id' => $task->id]) }}">
-                                                                Modifier </a> </span>
+                                                        <div class="d-flex flex-row-reverse">
+                                                           
+                                                                <div class="p-2">
+                                                                    <!--va dans l'url edittaskfrm et lui passe la valeur de l'id du task a modifier key=>value et on va passer la cle id dans l'url de la route-->
+                                                                    <span class="badge badge-success "> <a
+                                                                            style="color: rgb(255, 255, 255)"
+                                                                            href="{{ route('taskDone', ['id' => $task->id]) }}">complétée
+                                                                        </a> </span>
+                                                                </div>
+                                                           
+                                                            <div class="p-2">
+                                                                <!--va dans l'url rejectTask et lui passe la valeur de l'id du task key=>value et on va passer la cle id dans l'url de la route-->
+                                                                <span class="badge badge-danger "> <a style="color: white"
+                                                                        href="{{ route('rejectTask', ['id' => $task->id]) }}">Rejeter
+                                                                    </a> </span>
+                                                            </div>
+                                                           
+                                                            <div class="p-2">
+                                                                <!--va dans l'url edittaskfrm et lui passe la valeur de l'id du task a modifier key=>value et on va passer la cle id dans l'url de la route-->
+                                                                 
+                                                                 <span class="badge badge-complete "> <a
+                                                                        style="color: white"
+                                                                        href="{{ route('acceptedBy', ['task_id' => $task->id]) }}">
+                                                                        Accepter </a> </span>
+                                                                                                                                   </div>
+
+                                                        </div>
                                                     </td>
+
 
 
 

@@ -21,7 +21,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 //2nd parameter = the name of the function that exist in the controller
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes(['auth.verify' => true]);
@@ -29,14 +29,11 @@ Auth::routes(['auth.verify' => true]);
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('tasksPage', [TasksController::class, 'tasksPage'])->name('tasksPage');
 
-    Route::get('/createTaskForm', [TasksController::class, 'createTaskForm']);
+    Route::get('/createTaskForm', [TasksController::class, 'createTaskForm'])->name('createTaskForm');
 
     Route::post('/createNewTask', [TasksController::class, 'createNewTask'])->name('createNewTask'); //landing page of the client
 
-    //the id in here has to match with the key id in tasksPage.php. the controller will receive the $id
-    Route::get('/editTaskForm/{id}', [TasksController::class, 'editTaskForm'])->name('editTaskForm');
-
-    Route::post('editTask', [TasksController::class, 'editTask'])->name('editTask');
+    Route::get('/rejectTask/{id}', [TasksController::class, 'rejectTask'])->name('rejectTask');
 
     Route::get('/userAdmin', [TasksController::class, 'userAdmin'])->name('userAdmin');
 
@@ -52,9 +49,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    //it will shares the same name as the getrequest
-    Route::post('createTaskForm', [TasksController::class, 'sendTask']);
-    // ...
+    Route::get('/acceptTask{task_id}', [TasksController::class, 'acceptTask'])->name('acceptTask');    
+
+    // Route::post('sendMssage/{id}', [TasksController::class, 'sendMssage'])->name('sendMssage');
+    Route::get('taskDone/{id}', [TasksController::class, 'taskDone'])->name('taskDone');
+    
+    Route::get('acceptedBy/{task_id}', [TasksController::class, 'acceptedBy'])->name('acceptedBy');
+
+   
+
+    
 });
 
 Route::get('/email/verify', function () {
@@ -63,7 +67,7 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-    return redirect('/home');
+    return redirect('/createTaskForm');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
